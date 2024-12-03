@@ -7,7 +7,7 @@ import { CursosRoutingModule } from './cursos-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    CursosRoutingModule
+    CursosRoutingModule,
   ]
 })
 export class CursosModule { }
