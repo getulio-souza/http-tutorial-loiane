@@ -11,6 +11,6 @@ export class CursosService {
   constructor(private http: HttpClient) { }
 
   getList(){
-    this.http.get(this.API)
+    this.http.get<Curso[]>(this.API)
   }
 }

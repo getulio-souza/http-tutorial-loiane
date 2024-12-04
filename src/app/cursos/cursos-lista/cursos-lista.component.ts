@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CursosService } from '../cursos.service';
 
 @Component({
   selector: 'app-cursos-lista',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
   templateUrl: './cursos-lista.component.html',
   styles: ``
 })
-export class CursosListaComponent {
+export class CursosListaComponent implements OnInit {
+  cursos!: Curso[];
 
+  constructor(private service: CursosService){}
+
+  ngOnInit(): void {
+
+  }
 }
