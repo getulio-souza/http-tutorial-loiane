@@ -1,0 +1,6 @@
+{
+  "curso": [
+    { "id": "1", "nome": "angular", "duracao": 100 },
+    { "id": "2", "nome": "react", "duracao": 200 }
+  ]
+}
