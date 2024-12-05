@@ -12,11 +12,17 @@ import { Observable } from 'rxjs';
   styles: ``
 })
 export class CursosListaComponent implements OnInit {
-  cursos!: Curso[];
+  // cursos!: Curso[];
+  cursos$!: Observable<Curso[]>;
 
   constructor(private service: CursosService){}
 
   ngOnInit() {
-    this.service.getList()
+    // this.service.getList().subscribe((data)=> {
+    //   console.log(data);
+    //   this.cursos = data
+    // })
+
+    this.cursos$ = this.service.getList();
   }
 }

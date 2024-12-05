@@ -9,17 +9,19 @@
       </div>
     </div>
     <div class="card-body">
-      <table class="table table-hover">
+      <table class="table table-hover" *ngIf="cursos$ | async as cursos; else loading">
         <thead>
-          <tr *ngFor="let curso of cursos">
-            <th>{{curso.id}}</th>
-            <th>{{curso.nome}}</th>
+          <tr>
+            <th>id</th>
+            <th>curso</th>
+            <th>duracao</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let curso of cursos">
+            <td>{{curso.id}}</td>
+            <td>{{curso.title}}</td>
+            <td>{{curso.duracao}}</td>
             <td>
               <span class="float-right" style="display: flex; gap: 20px;">
                 <button class="btn btn-outline-warning mb-1 btn-sm">
@@ -34,3 +36,8 @@
           </tr>
         </tbody>
       </table>
+
+      <!-- loading -->
+       <ng-template #loading>
+        <span>carregando cursos...</span>
+       </ng-template>
