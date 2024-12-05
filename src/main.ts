@@ -1,8 +1,8 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
-// import { CursosListaComponent } from './app/cursos/cursos-lista/cursos-lista.component';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { AppComponent } from './app/app.component';
+import { appConfig } from './app/app.config';
 
 bootstrapApplication(AppComponent, {
-  providers: [provideHttpClient()], // Ensure this is added
+  providers: [appConfig.providers], // Use the providers from appConfig
 }).catch(err => console.error(err));
