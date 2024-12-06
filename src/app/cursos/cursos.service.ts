@@ -9,7 +9,7 @@ import { environment } from '../environments/environment';
 })
 export class CursosService {
 
-  private readonly API = `${environment.API_URL}cursos`
+  private readonly API = `${environment.API_URL}curso`
   constructor(private http: HttpClient) { }
 
   getList():Observable<Curso[]>{

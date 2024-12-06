@@ -3,17 +3,17 @@
     <div class="row mt-4 ml-3">
       <form class="form-inline">
         <div class="form-group mr-sm-2">
-          <input type="text" class="form-control" #valor placeholder="Valor">
+          <input #valor type="text" class="form-control" placeholder="Valor">
         </div>
         <div class="form-group mx-sm-2">
-          <button type="button" class="btn btn-outline-primary" (click)="emitirValor()">Emitir Valor</button>
+          <button type="button" class="btn btn-outline-primary" (click)="emitirValor(valor.value)">Emitir Valor</button>
         </div>
         <div class="form-group mx-sm-2">
           <button type="button" class="btn btn-outline-danger" (click)="destruirComponente()">Mostrar / Destruir Componentes</button>
         </div>
       </form>
     </div>
-    <div class="row mt-4">
+    <div class="row mt-4" *ngIf="mostrarComponentes">
       <app-poc></app-poc>
       <app-poc-unsub></app-poc-unsub>
       <app-poc-async></app-poc-async>

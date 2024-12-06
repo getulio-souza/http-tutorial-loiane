@@ -16,7 +16,6 @@ import { EnviarValorService } from '../services/enviar-valor.service';
     PocComponent,
     PocTakeComponent, 
     PocAsyncComponent, 
-    PocBaseComponent, 
     PocTakeUntilComponent, 
     PocUnsubComponent,
     CommonModule
@@ -26,15 +25,16 @@ import { EnviarValorService } from '../services/enviar-valor.service';
 })
 export class UnsubscribePocComponent {
   // Component logic here
-  mostrarComponente: boolean = true;
+  mostrarComponentes: boolean = true;
+  valor: any;
 
   constructor(private service: EnviarValorService){}
 
-  emitirValor(){
-
+  emitirValor(valor:string){
+    this.service.emitirValor(valor)
   }
 
   destruirComponente(){
-    this.mostrarComponente = !this.mostrarComponente;
+    this.mostrarComponentes = !this.mostrarComponentes;
   }
 }
