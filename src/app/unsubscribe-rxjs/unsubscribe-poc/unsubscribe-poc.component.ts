@@ -24,14 +24,14 @@ import { EnviarValorService } from '../services/enviar-valor.service';
   styles: []
 })
 export class UnsubscribePocComponent {
-  // Component logic here
   mostrarComponentes: boolean = true;
-  valor: any;
 
   constructor(private service: EnviarValorService){}
 
-  emitirValor(valor:string){
-    this.service.emitirValor(valor)
+  emitirValor(valorInput: HTMLInputElement){
+    let valor = valorInput.value;
+    this.service.emitirValor(valor);
+    valorInput.value = '';
   }
 
   destruirComponente(){
