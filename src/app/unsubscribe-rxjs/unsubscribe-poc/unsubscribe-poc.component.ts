@@ -29,7 +29,7 @@ export class UnsubscribePocComponent {
   constructor(private service: EnviarValorService){}
 
   emitirValor(valorInput: HTMLInputElement){
-    let valor = valorInput.value;
+    const valor = valorInput.value;
     this.service.emitirValor(valor);
     valorInput.value = '';
   }
