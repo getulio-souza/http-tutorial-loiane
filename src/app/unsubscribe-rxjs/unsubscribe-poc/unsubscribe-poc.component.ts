@@ -14,10 +14,9 @@ import { EnviarValorService } from '../services/enviar-valor.service';
   standalone: true,
   imports: [
     PocComponent,
-    PocTakeComponent, 
-    PocAsyncComponent, 
-    PocBaseComponent, 
-    PocTakeUntilComponent, 
+    PocTakeComponent,
+    PocAsyncComponent,
+    PocTakeUntilComponent,
     PocUnsubComponent,
     CommonModule
   ],
