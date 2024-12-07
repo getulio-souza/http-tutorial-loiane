@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { PocComponent } from '../components/poc/poc.component';  // Import PocComponent
 import { PocTakeComponent } from '../components/poc-take/poc-take.component';
 import { PocAsyncComponent } from '../components/poc-async/poc-async.component';
-import { PocBaseComponent } from '../poc-base/poc-base.component';
 import { PocTakeUntilComponent } from '../components/poc-take-until/poc-take-until.component';
 import { PocUnsubComponent } from '../components/poc-unsub/poc-unsub.component';
 import { CommonModule } from '@angular/common';
@@ -24,16 +22,17 @@ import { EnviarValorService } from '../services/enviar-valor.service';
   styles: []
 })
 export class UnsubscribePocComponent {
-  // Component logic here
-  mostrarComponente: boolean = true;
+  mostrarComponentes: boolean = true;
 
   constructor(private service: EnviarValorService){}
 
-  emitirValor(){
-
+  emitirValor(valorInput: HTMLInputElement){
+    const valor = valorInput.value;
+    this.service.emitirValor(valor);
+    valorInput.value = '';
   }
 
   destruirComponente(){
-    this.mostrarComponente = !this.mostrarComponente;
+    this.mostrarComponentes = !this.mostrarComponentes;
   }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CursosService } from '../cursos.service';
 import { Curso } from '../curso';
 import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-cursos-lista',
@@ -14,15 +14,17 @@ import { Observable } from 'rxjs';
 export class CursosListaComponent implements OnInit {
   // cursos!: Curso[];
   cursos$!: Observable<Curso[]>;
+  error$ = new Subject<boolean>()
 
   constructor(private service: CursosService){}
 
   ngOnInit() {
-    // this.service.getList().subscribe((data)=> {
-    //   console.log(data);
-    //   this.cursos = data
-    // })
-
-    this.cursos$ = this.service.getList();
+    this.cursos$ = this.service.getList().pipe(
+      catchError((err) => {
+        console.error('there was an error. Check your connection',err); // Registra o erro
+        this.error$.next(true)
+        return of([]); // Retorna um array vazio em caso de erro
+      })
+    );
   }
 }

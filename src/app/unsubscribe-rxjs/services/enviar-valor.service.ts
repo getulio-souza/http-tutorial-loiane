@@ -11,7 +11,7 @@ export class EnviarValorService {
   private emissor$ = new Subject<string>()
 
   emitirValor(valor:string){
-    this.emissor$.next(valor)
+    this.emissor$.next(valor);
   }
 
   getValor(){
