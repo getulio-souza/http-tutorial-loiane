@@ -3,11 +3,12 @@ import { CursosService } from '../cursos.service';
 import { Curso } from '../curso';
 import { CommonModule } from '@angular/common';
 import { catchError, Observable, of, Subject } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cursos-lista',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './cursos-lista.component.html',
   styles: ``
 })
@@ -26,5 +27,9 @@ export class CursosListaComponent implements OnInit {
         return of([]); // Retorna um array vazio em caso de erro
       })
     );
+  }
+
+  onRefresh() {
+
   }
 }
